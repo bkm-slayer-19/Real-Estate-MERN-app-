@@ -17,16 +17,19 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/posts", postRoute);
-app.use("/api/test", testRoute);
-app.use("/api/chats", chatRoute);
-app.use("/api/messages", messageRoute);
+app.use("/auth", authRoute);
+app.use("/users", userRoute);
+app.use("/posts", postRoute);
+app.use("/test", testRoute);
+app.use("/chats", chatRoute);
+app.use("/messages", messageRoute);
 
 // Health check endpoint
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "Estate API is running!" });
 });
 
-export default app;
+// Export for Vercel serverless function
+export default (req, res) => {
+  return app(req, res);
+};
