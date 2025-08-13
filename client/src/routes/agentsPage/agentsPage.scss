@@ -1,0 +1,234 @@
+@import "../../responsive.scss";
+
+.agentsPage {
+  padding: 50px 0;
+  
+  .wrapper {
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    .title {
+      font-size: 48px;
+      font-weight: 200;
+      text-align: center;
+      margin-bottom: 20px;
+      
+      @include sm {
+        font-size: 32px;
+      }
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      color: #888;
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    
+    .agentsContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 100px;
+      
+      @include sm {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .agentCard {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid #f0f0f0;
+        
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .agentImage {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          margin-bottom: 20px;
+          
+          img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          
+          .rating {
+            position: absolute;
+            top: -5px;
+            right: 50px;
+            background: #fece51;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+          }
+        }
+        
+        .agentInfo {
+          text-align: center;
+          
+          h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 5px;
+          }
+          
+          .title {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+          }
+          
+          .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            
+            .stat {
+              text-align: left;
+              
+              .label {
+                display: block;
+                font-size: 12px;
+                color: #888;
+                margin-bottom: 5px;
+              }
+              
+              .value {
+                font-size: 14px;
+                font-weight: 500;
+              }
+            }
+          }
+          
+          .specialties {
+            margin-bottom: 25px;
+            text-align: left;
+            
+            .label {
+              font-size: 12px;
+              color: #888;
+              display: block;
+              margin-bottom: 10px;
+            }
+            
+            .tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              
+              .tag {
+                background: #f0f0f0;
+                padding: 5px 12px;
+                border-radius: 15px;
+                font-size: 12px;
+                color: #666;
+              }
+            }
+          }
+          
+          .contact {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+            
+            .contactItem {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              font-size: 14px;
+              
+              img {
+                width: 16px;
+                height: 16px;
+              }
+            }
+          }
+          
+          .contactBtn {
+            width: 100%;
+            padding: 12px 20px;
+            background: #fece51;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            
+            &:hover {
+              background: #f0c040;
+              transform: translateY(-2px);
+            }
+          }
+        }
+      }
+    }
+    
+    .joinTeam {
+      background: linear-gradient(135deg, #fece51 0%, #f0c040 100%);
+      padding: 60px 40px;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      
+      h2 {
+        font-size: 36px;
+        font-weight: 300;
+        margin-bottom: 20px;
+        
+        @include sm {
+          font-size: 28px;
+        }
+      }
+      
+      p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+        opacity: 0.9;
+        
+        @include sm {
+          font-size: 16px;
+        }
+      }
+      
+      .joinBtn {
+        padding: 15px 40px;
+        background: white;
+        color: #fece51;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}

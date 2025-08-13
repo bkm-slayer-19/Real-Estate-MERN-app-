@@ -1,0 +1,152 @@
+@import "../../responsive.scss";
+
+.contactPage {
+  display: flex;
+  height: calc(100vh - 120px);
+  
+  .textContainer {
+    flex: 1;
+    padding: 100px 0;
+    
+    .wrapper {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 20px;
+      
+      .title {
+        font-size: 48px;
+        font-weight: 200;
+        margin-bottom: 30px;
+        
+        @include sm {
+          font-size: 32px;
+        }
+      }
+      
+      p {
+        color: #888;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 50px;
+      }
+      
+      .contactInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        
+        .info {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          
+          img {
+            width: 24px;
+            height: 24px;
+          }
+          
+          div {
+            span {
+              font-weight: 500;
+              display: block;
+              margin-bottom: 5px;
+            }
+            
+            p {
+              color: #888;
+              margin: 0;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .formContainer {
+    flex: 1;
+    background-color: #fcf5f3;
+    padding: 100px 0;
+    
+    .wrapper {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 20px;
+      
+      h2 {
+        font-size: 28px;
+        font-weight: 300;
+        margin-bottom: 30px;
+        
+        @include sm {
+          font-size: 24px;
+        }
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+        .inputGroup {
+          display: flex;
+          gap: 20px;
+          
+          @include sm {
+            flex-direction: column;
+            gap: 20px;
+          }
+        }
+        
+        input, textarea {
+          padding: 15px;
+          border: 1px solid #e0e0e0;
+          border-radius: 5px;
+          font-size: 16px;
+          
+          &:focus {
+            outline: none;
+            border-color: #fece51;
+          }
+        }
+        
+        button {
+          padding: 15px 30px;
+          background-color: #fece51;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s;
+          
+          &:hover {
+            background-color: #f0c040;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+  
+  @include md {
+    flex-direction: column;
+    height: auto;
+    
+    .textContainer, .formContainer {
+      flex: none;
+      padding: 50px 0;
+    }
+  }
+  
+  @include sm {
+    flex-direction: column;
+    height: auto;
+    
+    .textContainer, .formContainer {
+      flex: none;
+      padding: 50px 0;
+    }
+  }
+}
