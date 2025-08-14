@@ -71,13 +71,37 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// API routes
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/posts", postRoute);
-app.use("/api/test", testRoute);
-app.use("/api/chats", chatRoute);
-app.use("/api/messages", messageRoute);
+// Debug endpoint
+app.get("/api", (req, res) => {
+  res.json({ 
+    message: "API is working!", 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || "development"
+  });
+});
+
+// API routes with error handling
+try {
+  app.use("/api/auth", authRoute);
+  app.use("/api/users", userRoute);
+  app.use("/api/posts", postRoute);
+  app.use("/api/test", testRoute);
+  app.use("/api/chats", chatRoute);
+  app.use("/api/messages", messageRoute);
+  console.log("✅ API routes loaded successfully");
+} catch (error) {
+  console.error("❌ Error loading API routes:", error);
+}
+
+// Catch-all for unhandled API routes (for debugging)
+app.all('/api/*', (req, res) => {
+  console.log(`❌ Unhandled API route: ${req.method} ${req.path}`);
+  res.status(404).json({ 
+    error: "API route not found", 
+    path: req.path, 
+    method: req.method 
+  });
+});
 
 // Serve static files (client build)
 app.use(express.static(join(__dirname, 'client/dist')));
