@@ -1,0 +1,25 @@
+{
+  "name": "full-stack-estate",
+  "version": "1.0.0",
+  "description": "Full stack real estate application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "node server.js",
+    "postinstall": "cd client && npm install && cd ../api && npm install"
+  },
+  "dependencies": {
+    "express": "^4.18.3",
+    "cors": "^2.8.5",
+    "cookie-parser": "^1.4.6",
+    "@prisma/client": "^5.11.0",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "socket.io": "^4.7.5",
+    "prisma": "^5.11.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
